@@ -11,6 +11,12 @@ const LaunchRequestHandler = {
     },
     async handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
+        
+        const attributesManager = handlerInput.attributesManager;
+        let s3Attributes = {"hotnessList":result.items.item};
+        attributesManager.setPersistentAttributes(s3Attributes);
+        await attributesManager.savePersistentAttributes();
+        
         const speakOutput = `Hola, he encontrado ${result.items.item.length} juegos de los que se está hablando. ¿Quieres escuchar la lista completa o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
