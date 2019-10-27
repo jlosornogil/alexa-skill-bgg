@@ -31,15 +31,8 @@ const CompleteListIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CompleteListIntent';
     },
     async handle(handlerInput) {
-        const attributesManager = handlerInput.attributesManager;
-        const s3Attributes = await attributesManager.getPersistentAttributes() || {};
-        const games = s3Attributes.hotnessList;
-        console.log(games);
-        const speakOutput = games
-                                .map(game => `<p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
-                                .join('');
         return handlerInput.responseBuilder
-            .speak(speakOutput)
+            .speak(getGameList(handlerInput, 0, 50))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
