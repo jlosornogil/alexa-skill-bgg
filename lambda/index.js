@@ -42,9 +42,10 @@ const FirstListItemsIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FirstListItemsIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
+        const speakOutput = await getGameList(handlerInput, 0, handlerInput.requestEnvelope.request.intent.slots.size.value);
         return handlerInput.responseBuilder
-            .speak(getGameList(handlerInput, 0, handlerInput.requestEnvelope.request.intent.slots.size.value))
+            .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
@@ -133,7 +134,7 @@ async function getGameList(handlerInput, initIndex, endIndex) {
                         .slice(initIndex, endIndex)
                         .join('');
     console.log(gameList);
-    return "Hola";
+    return gameList;
 }
 
 // The SkillBuilder acts as the entry point for your skill, routing all request and response
