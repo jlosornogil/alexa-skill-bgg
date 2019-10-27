@@ -28,7 +28,7 @@ const LaunchRequestHandler = {
 const CompleteListIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CompleteListIntent';
     },
     async handle(handlerInput) {
         const attributesManager = handlerInput.attributesManager;
