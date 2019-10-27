@@ -44,7 +44,6 @@ const FirstListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FirstListItemsIntent';
     },
     async handle(handlerInput) {
-        console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
         const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'firstSize');
         const speakOutput = await getGameList(handlerInput, 0, endIndex.value);
         return handlerInput.responseBuilder
@@ -59,7 +58,6 @@ const LastListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LastListItemsIntent';
     },
     async handle(handlerInput) {
-        console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
         const speakOutput = await getGameList(handlerInput, 50 - (handlerInput.requestEnvelope.request.intent.slots.lastSize.value + 1), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -73,7 +71,6 @@ const RangeListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RangeListItemsIntent';
     },
     async handle(handlerInput) {
-        console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
         const speakOutput = await getGameList(handlerInput, (handlerInput.requestEnvelope.request.intent.slots.startIndex.value-1), handlerInput.requestEnvelope.request.intent.slots.endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -157,6 +154,7 @@ const ErrorHandler = {
 
 /* HELPER FUNCTIONS */
 async function getGameList(handlerInput, initIndex, endIndex) {
+    
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
