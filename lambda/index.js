@@ -13,7 +13,7 @@ const LaunchRequestHandler = {
         const result = await bgg('hot',{type: 'boardgame'});
         
         const attributesManager = handlerInput.attributesManager;
-        let s3Attributes = {"hotnessList":result.items.item};
+        let s3Attributes = {'hotnessList':result.items.item};
         attributesManager.setPersistentAttributes(s3Attributes);
         await attributesManager.savePersistentAttributes();
         
