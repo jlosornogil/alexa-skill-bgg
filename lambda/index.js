@@ -57,7 +57,7 @@ const LastListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LastListItemsIntent';
     },
     async handle(handlerInput) {
-        const speakOutput = await getGameList(handlerInput, handlerInput.requestEnvelope.request.intent.slots.size.value, 50);
+        const speakOutput = await getGameList(handlerInput, 50 - (handlerInput.requestEnvelope.request.intent.slots.size.value + 1), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
