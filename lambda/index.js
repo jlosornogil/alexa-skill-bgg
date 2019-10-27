@@ -44,7 +44,7 @@ const FirstListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FirstListItemsIntent';
     },
     async handle(handlerInput) {
-        const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'size');
+        const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'firstSize');
         const speakOutput = await getGameList(handlerInput, 0, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
