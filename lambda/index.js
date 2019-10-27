@@ -51,6 +51,21 @@ const FirstListItemsIntentHandler = {
             .getResponse();
     }
 };
+const LastListItemsIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LastListItemsIntent';
+    },
+    async handle(handlerInput) {
+        const speakOutput = await getGameList(handlerInput, 0, handlerInput.requestEnvelope.request.intent.slots.size.value);
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -147,6 +162,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         CompleteListIntentHandler,
         FirstListItemsIntentHandler,
+        LastListItemsIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
