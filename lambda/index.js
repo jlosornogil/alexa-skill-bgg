@@ -21,7 +21,7 @@ const HotnessListIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntentIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
         
         
