@@ -19,7 +19,7 @@ const LaunchRequestHandler = {
 const HotnessListIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntentIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntent';
     },
     async handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
@@ -114,7 +114,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
-        //IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+        IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
         ErrorHandler,
