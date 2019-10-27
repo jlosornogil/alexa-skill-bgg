@@ -11,10 +11,10 @@ const LaunchRequestHandler = {
     },
     async handle(handlerInput) {
         const rawResult = await bgg('hot',{type: 'boardgame'});
-        var result = rawResult.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
+        var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
         
         const attributesManager = handlerInput.attributesManager;
-        let s3Attributes = {'hotnessList':result.items.item};
+        let s3Attributes = {'hotnessList':result};
         attributesManager.setPersistentAttributes(s3Attributes);
         await attributesManager.savePersistentAttributes();
         
