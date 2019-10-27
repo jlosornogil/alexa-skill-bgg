@@ -56,6 +56,7 @@ const FirstListItemsIntentHandler = {
         console.log(games);
         const speakOutput = games
                                 .map(game => `<p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
+                                .slice(1,5)
                                 .join('');
         return handlerInput.responseBuilder
             .speak(speakOutput)
