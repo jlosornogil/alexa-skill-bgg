@@ -23,8 +23,7 @@ const HotnessListIntentHandler = {
     },
     async handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
-        
-        const speakOutput = 'Hello World!';
+        const speakOutput = 'He encontrado ' + result.items.item.length + ' resultados';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
