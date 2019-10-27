@@ -73,6 +73,7 @@ const RangeListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RangeListItemsIntent';
     },
     async handle(handlerInput) {
+        console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
         const speakOutput = await getGameList(handlerInput, (handlerInput.requestEnvelope.request.intent.slots.startIndex.value-1), handlerInput.requestEnvelope.request.intent.slots.endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
