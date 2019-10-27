@@ -58,6 +58,7 @@ const LastListItemsIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LastListItemsIntent';
     },
     async handle(handlerInput) {
+        console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
         const speakOutput = await getGameList(handlerInput, 50 - (handlerInput.requestEnvelope.request.intent.slots.lastSize.value + 1), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
