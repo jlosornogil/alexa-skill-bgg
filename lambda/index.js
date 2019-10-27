@@ -23,8 +23,6 @@ const HotnessListIntentHandler = {
     },
     handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
-        
-        
         const speakOutput = 'Hello World!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
