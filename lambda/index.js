@@ -2,6 +2,7 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
+const bgg = require('bgg')();
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -21,6 +22,9 @@ const HotnessListIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntentIntent';
     },
     handle(handlerInput) {
+        const result = await bgg('hot',{type: 'boardgame'});
+        
+        
         const speakOutput = 'Hello World!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
