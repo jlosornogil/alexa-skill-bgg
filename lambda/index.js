@@ -139,14 +139,14 @@ const ErrorHandler = {
 };
 
 /* HELPER FUNCTIONS */
-async function getGameList(initIndex, endIndex) {
+async function getGameList(handlerInput, initIndex, endIndex) {
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
     console.log(games);
     const gameList = games
                         .map(game => `<p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
-                        .slice(initIndex,endIndex)
+                        .slice(initIndex, endIndex)
                         .join('');
     return gameList;
 }
