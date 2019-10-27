@@ -8,8 +8,9 @@ const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
-    handle(handlerInput) {
-        const speakOutput = 'Hola, puedes escuchar la lista completa de juegos de los que se está hablando o pedir una sección de la lista';
+    async handle(handlerInput) {
+        const result = await bgg('hot',{type: 'boardgame'});
+        const speakOutput = `Hola, he encontrado ${result.items.item.length} juegos de los que se está hablando. ¿Quieres escuchar la lista completa o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
