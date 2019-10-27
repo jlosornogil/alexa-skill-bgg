@@ -157,7 +157,7 @@ async function getGameList(handlerInput, initIndex, endIndex) {
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
     console.log(initIndex);
-    console.log(endIndexIndex);
+    console.log(endIndex);
     const gameList = games
                         .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
                         .slice(initIndex, endIndex)
