@@ -30,8 +30,10 @@ const HotnessListIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntent';
     },
     async handle(handlerInput) {
-        const result = await bgg('hot',{type: 'boardgame'});
-        const speakOutput = 'He encontrado ' + result.items.item.length + ' resultados';
+        const attributesManager = handlerInput.attributesManager;
+        const s3Attributes = await attributesManager.getPersistentAttributes() || {};
+        const games = s3Attributes.hotnessList;
+        const speakOutput = 'He encontrado ' + games.length + ' resultados';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
