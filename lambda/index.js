@@ -35,7 +35,9 @@ const HotnessListIntentHandler = {
         const s3Attributes = await attributesManager.getPersistentAttributes() || {};
         const games = s3Attributes.hotnessList;
         console.log(games);
-        const speakOutput = 'He encontrado ' + games.length + ' resultados';
+        const speakOutput = games
+                                .map(game => `${game.rank} <break time="1s"/> <lang xml:lang="en-US">${game.name}</lang>`)
+                                .join('<break time="1s"/>');
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
