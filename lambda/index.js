@@ -10,7 +10,8 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     async handle(handlerInput) {
-        const result = await bgg('hot',{type: 'boardgame'});
+        const rawResult = await bgg('hot',{type: 'boardgame'});
+        var result = rawResult.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
         
         const attributesManager = handlerInput.attributesManager;
         let s3Attributes = {'hotnessList':result.items.item};
