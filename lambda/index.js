@@ -24,7 +24,6 @@ const HotnessListIntentHandler = {
     async handle(handlerInput) {
         const result = await bgg('hot',{type: 'boardgame'});
         
-        
         const speakOutput = 'Hello World!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -53,7 +52,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = '¡Adios!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
