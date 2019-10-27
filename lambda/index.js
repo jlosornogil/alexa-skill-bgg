@@ -33,6 +33,7 @@ const HotnessListIntentHandler = {
         const attributesManager = handlerInput.attributesManager;
         const s3Attributes = await attributesManager.getPersistentAttributes() || {};
         const games = s3Attributes.hotnessList;
+        console.log(games);
         const speakOutput = 'He encontrado ' + games.length + ' resultados';
         return handlerInput.responseBuilder
             .speak(speakOutput)
