@@ -25,7 +25,7 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-const HotnessListIntentHandler = {
+const CompleteListIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HotnessListIntent';
@@ -124,7 +124,7 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HotnessListIntentHandler,
+        CompleteListIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
