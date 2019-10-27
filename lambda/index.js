@@ -36,7 +36,7 @@ const HotnessListIntentHandler = {
         const games = s3Attributes.hotnessList;
         console.log(games);
         const speakOutput = games
-                                .map(game => `<p><emphasis level="moderate">${game.rank}</emphasis> <break strength="strong"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
+                                .map(game => `<p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
                                 .join('');
         return handlerInput.responseBuilder
             .speak(speakOutput)
