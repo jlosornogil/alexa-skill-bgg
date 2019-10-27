@@ -133,7 +133,7 @@ async function getGameList(handlerInput, initIndex, endIndex) {
                         .slice(initIndex, endIndex)
                         .join('');
     console.log(gameList);
-    return gameList;
+    return "Hola";
 }
 
 // The SkillBuilder acts as the entry point for your skill, routing all request and response
