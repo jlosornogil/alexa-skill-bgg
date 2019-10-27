@@ -36,8 +36,8 @@ const HotnessListIntentHandler = {
         const games = s3Attributes.hotnessList;
         console.log(games);
         const speakOutput = games
-                                .map(game => `<emphasis level="moderate">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang>`)
-                                .join('<break time="1s"/>');
+                                .map(game => `<p><emphasis level="moderate">${game.rank}</emphasis> <break strength="strong"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
+                                .join('');
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
