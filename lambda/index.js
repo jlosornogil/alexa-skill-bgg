@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Hola, puedes escuchar la lista completa de juegos de los que se está hablando completa o pedir una sección de la lista';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
