@@ -30,7 +30,7 @@ const CompleteListIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CompleteListIntent';
     },
-    async handle(handlerInput) {
+    handle(handlerInput) {
         return handlerInput.responseBuilder
             .speak(getGameList(handlerInput, 0, 50))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -42,7 +42,7 @@ const FirstListItemsIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FirstListItemsIntent';
     },
-    async handle(handlerInput) {
+    handle(handlerInput) {
         return handlerInput.responseBuilder
             .speak(getGameList(handlerInput, 0, handlerInput.requestEnvelope.request.intent.slots.size.value))
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
