@@ -221,6 +221,18 @@ function getNumberOfPlayers(game) {
     return numberOfPlayers;
 }
 
+function getPublisher(game) {
+    let publisher = '';
+    
+    const publishers = game.link
+                            .filter(link => link.type === 'boardgamepublisher');
+    if(publishers) {
+        publisher = ` publicado por ${publishers[0].value}`
+    }
+    
+    return publisher;
+}
+
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
     const gameList = await getGameList(handlerInput);
