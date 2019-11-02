@@ -252,7 +252,7 @@ function getPlayingTime(game) {
 }
 
 function getCategory(game) {
-   let categorySpeak = '';
+    let categorySpeak = '';
     const categories = game.link
                             .filter(link => link.type === 'boardgamecategory')
                             .sort((a,b) => a.id - b.id)
@@ -266,17 +266,17 @@ function getCategory(game) {
 }
 
 function getMechanic(game) {
-   let mechanicSpeak = '';
-    const categories = game.link
+    let mechanicSpeak = '';
+    const mechanics = game.link
                             .filter(link => link.type === 'boardgamecategory')
                             .sort((a,b) => a.id - b.id)
                             .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
-    if(categories && categories.length === 1) {
-        categorySpeak = `<p> Está englobado en la categoría ${categories[0]}.</p>`;
-    } else if(categories.length > 1) {
-        categorySpeak = '<p> Está englobado en las categorías: ' + categories.slice(0, -1).join(', ') + ' y ' + categories.slice(-1) + '.</p>';
+    if(mechanics && mechanics.length === 1) {
+        mechanicSpeak = `<p> Está englobado en la categoría ${mechanics[0]}.</p>`;
+    } else if(mechanics.length > 1) {
+        mechanicSpeak = '<p> Está englobado en las categorías: ' + mechanics.slice(0, -1).join(', ') + ' y ' + mechanics.slice(-1) + '.</p>';
     }
-    return categorySpeak; 
+    return mechanicSpeak; 
 }
 
 async function getGameDetail(handlerInput, detailIndex) {
