@@ -199,6 +199,22 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
     }
 }
 
+function getNumberOfPlayers(game) {
+    let numberOfPlayers = '';
+    if(game.minplayers && game.maxplayers) {
+        if(game.minplayers === game.maxplayers) {
+            if(game.minplayers == '1') {
+                numberOfPlayers = ' en solitario ';
+            } else {
+                numberOfPlayers = ` para ${game.minplayers} jugadores `;
+            }
+        } else {
+            numberOfPlayers = ` de ${game.minplayers} a ${game.maxplayers} jugadores `;
+        }
+    }
+    return numberOfPlayers;
+}
+
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
     const gameList = await getGameList(handlerInput);
