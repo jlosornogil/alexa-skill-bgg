@@ -1,3 +1,4 @@
+/* REQUIRED LIBRARIES */
 const Alexa = require('ask-sdk-core');
 const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 const bgg = require('bgg')();
