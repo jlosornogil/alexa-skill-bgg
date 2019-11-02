@@ -53,7 +53,6 @@ const FirstListItemsIntentHandler = {
             .getResponse();
     }
 };
-
 const LastListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -87,6 +86,17 @@ const RangeListItemsIntentHandler = {
             .getResponse();
     }
 };
+const GameDetailIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GameDetailIntent';
+    },
+    async handle(handlerInput) {
+        
+    }
+}
+
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
