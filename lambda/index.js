@@ -203,6 +203,13 @@ async function getGameSublist(handlerInput, initIndex, endIndex) {
                 .slice(initIndex, endIndex);
 }
 
+/**
+ * Get the text to describe the details of a game from BGG.
+ * 
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @param  {Number}         detailIndex     the game's index inside the hotness of BGG
+ * @return {String}                         Alexa's SSML text to represent the detail of the specific game
+ */
 async function getGameDetailSpeak(handlerInput, detailIndex) {
     const game = await getGameDetail(handlerInput, detailIndex);
     if(game) {
