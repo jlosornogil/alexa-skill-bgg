@@ -252,14 +252,14 @@ function getPlayingTime(game) {
 
 function getCategory(game) {
    let categorySpeak = '';
-    const designers = game.link
+    const categories = game.link
                             .filter(link => link.type === 'boardgamecategory')
                             .sort((a,b) => a.id - b.id)
-                            .map(item => item.value);
-    if(designers && designers.length === 1) {
-        categorySpeak = ` diseñado por ${designers[0]} `;
-    } else if(designers.length > 1) {
-        categorySpeak = ' diseñado por ' + designers.slice(0, -1).join(', ') + ' y ' + designers.slice(-1);
+                            .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
+    if(categories && categories.length === 1) {
+        categorySpeak = `<p> Está englobado en la categoría ${categories[0]}.</p>`;
+    } else if(categories.length > 1) {
+        categorySpeak = ' diseñado por ' + categories.slice(0, -1).join(', ') + ' y ' + categories.slice(-1);
     }
     return categorySpeak; 
 }
