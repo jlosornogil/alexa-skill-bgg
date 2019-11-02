@@ -67,21 +67,21 @@ const LastListItemsIntentHandler = {
             .getResponse();
     }
 };
-/*
 const RangeListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RangeListItemsIntent';
     },
     async handle(handlerInput) {
-        const speakOutput = await getGameList(handlerInput, (handlerInput.requestEnvelope.request.intent.slots.startIndex.value-1), handlerInput.requestEnvelope.request.intent.slots.endIndex.value);
+        const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'startIndex');
+        const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'endIndex');
+        const speakOutput = await getGameList(handlerInput, startIndex, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
-*/
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
