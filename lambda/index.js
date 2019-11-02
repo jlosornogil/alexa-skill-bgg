@@ -14,15 +14,8 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     async handle(handlerInput) {
-        const rawResult = await bgg('hot',{type: 'boardgame'});
-        var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
-        
-        const attributesManager = handlerInput.attributesManager;
-        let s3Attributes = {'hotnessList':result};
-        attributesManager.setPersistentAttributes(s3Attributes);
-        await attributesManager.savePersistentAttributes();
-        
-        const speakOutput = `Hola, he encontrado ${s3Attributes.hotnessList.length} juegos de los que se está hablando en <lang xml:lang="en-US">Board Game Geek</lang>. ¿Quieres escuchar la lista completa, o una parte?`;
+        const hotnessList = await storeHotnessList(handlerInput);
+        const speakOutput = `Hola, he encontrado ${hotnessList.length} juegos de los que se está hablando en <lang xml:lang="en-US">Board Game Geek</lang>. ¿Quieres escuchar la lista completa, o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
