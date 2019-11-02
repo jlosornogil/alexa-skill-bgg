@@ -250,6 +250,20 @@ function getPlayingTime(game) {
     return playingTimeSpeak;
 }
 
+function getCategory(game) {
+   let categorySpeak = '';
+    const designers = game.link
+                            .filter(link => link.type === 'boardgamecategory')
+                            .sort((a,b) => a.id - b.id)
+                            .map(item => item.value);
+    if(designers && designers.length === 1) {
+        categorySpeak = ` diseñado por ${designers[0]} `;
+    } else if(designers.length > 1) {
+        categorySpeak = ' diseñado por ' + designers.slice(0, -1).join(', ') + ' y ' + designers.slice(-1);
+    }
+    return categorySpeak; 
+}
+
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
     const gameList = await getGameList(handlerInput);
