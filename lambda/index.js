@@ -93,7 +93,7 @@ const GameDetailIntentHandler = {
     },
     handle(handlerInput) {
         const detailIndexParam = Alexa.getSlot(handlerInput.requestEnvelope, 'detailIndex');
-        const detailIndex = detailIndexParam - 1;
+        const detailIndex = detailIndexParam.value - 1;
         return handlerInput.responseBuilder
             .speak(`Más información del número ${detailIndex}`)
             .reprompt(reprompt)
