@@ -79,7 +79,7 @@ const RangeListItemsIntentHandler = {
         const speakOutput = await getGameList(handlerInput, startIndex.value - 1, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(reprompt)
             .getResponse();
     }
 };
