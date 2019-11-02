@@ -23,7 +23,7 @@ const LaunchRequestHandler = {
         const speakOutput = `Hola, he encontrado ${s3Attributes.hotnessList.length} juegos de los que se está hablando. ¿Quieres escuchar la lista completa, o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .reprompt(speakOutput)
+            .reprompt(reprompt)
             .getResponse();
     }
 };
