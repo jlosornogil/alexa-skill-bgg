@@ -225,10 +225,22 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
     }
 }
 
+/**
+ * Get the text to describe a game's name.
+ * 
+ * @param  {Object}         game    given game to retrieve its name
+ * @return {String}                 Alexa's SSML text to represent the game's name
+ */
 function getName(game) {
     return ' <lang xml:lang="en-US">' + (Array.isArray(game.name) ? game.name[0].value : game.name.value) + '</lang> ';
 }
 
+/**
+ * Get the text to describe a game's number of players.
+ * 
+ * @param  {Object}         game    given game to retrieve its name
+ * @return {String}                 Alexa's SSML text to represent the game's name
+ */
 function getNumberOfPlayers(game) {
     let numberOfPlayers = '';
     if(game.minplayers && game.maxplayers) {
