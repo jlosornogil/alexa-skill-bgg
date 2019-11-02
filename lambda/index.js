@@ -232,8 +232,7 @@ function getDesigner(game) {
     if(designers && designers.length === 1) {
         designerSpeak = ` diseñado por ${designers[0]} `;
     } else if(designers.length > 1) {
-        a.slice(0, -1).join(',')+' or '+a.slice(-1);
-        designerSpeak = ` diseñado por ${designers[0].value} `;
+        designerSpeak = ' diseñado por ' + designers.slice(0, -1).join(',') + ' y ' + designers.slice(-1);
     }
     return designerSpeak;
 }
