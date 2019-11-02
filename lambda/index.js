@@ -170,6 +170,18 @@ async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     return gameList;
 }
 
+async function getGameList(handlerInput) {
+    const attributesManager = handlerInput.attributesManager;
+    const s3Attributes = await attributesManager.getPersistentAttributes() || {};
+    return s3Attributes.hotnessList;
+}
+
+async function getGameSublist(handlerInput, initIndex, endIndex) {
+    const gameList = await getGameList(handlerInput);
+    return gameList
+                .slice(initIndex, endIndex);
+}
+
 /* LAMBDA SETUP */
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
