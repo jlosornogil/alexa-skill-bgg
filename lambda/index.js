@@ -257,6 +257,12 @@ function getNumberOfPlayers(game) {
     return numberOfPlayers;
 }
 
+/**
+ * Get the text to describe a game's designer/s.
+ * 
+ * @param  {Object}         game    given game to retrieve its designer/s
+ * @return {String}                 Alexa's SSML text to represent the game's name
+ */
 function getDesigner(game) {
     let designerSpeak = '';
     const designers = game.link
