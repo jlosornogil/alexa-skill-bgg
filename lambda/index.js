@@ -268,7 +268,7 @@ function getCategory(game) {
 function getMechanic(game) {
     let mechanicSpeak = '';
     const mechanics = game.link
-                            .filter(link => link.type === 'boardgamecategory')
+                            .filter(link => link.type === 'boardgamemechanic')
                             .sort((a,b) => a.id - b.id)
                             .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
     if(mechanics && mechanics.length === 1) {
