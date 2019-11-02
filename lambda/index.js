@@ -223,13 +223,11 @@ function getNumberOfPlayers(game) {
 
 function getPublisher(game) {
     let publisher = '';
-    
     const publishers = game.link
                             .filter(link => link.type === 'boardgamepublisher');
     if(publishers) {
         publisher = ` publicado por ${publishers[0].value} `;
     }
-    
     return publisher;
 }
 
