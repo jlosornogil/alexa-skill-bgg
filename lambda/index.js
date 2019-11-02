@@ -196,7 +196,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
         const name = getName(game);
         const numberOfPlayers = getNumberOfPlayers(game);
         const publisher = getPublisher(game);
-        return `${name}, es un juego ${numberOfPlayers}, publicado en el año ${game.yearpublished.value}.`;
+        return `${name}, es un juego ${numberOfPlayers}, ${publisher} en el año ${game.yearpublished.value}.`;
     } else {
         return notFoundSpeak;
     }
