@@ -97,8 +97,6 @@ const GameDetailIntentHandler = {
         return `Más información del número ${detailIndex}`;
     }
 }
-
-
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
