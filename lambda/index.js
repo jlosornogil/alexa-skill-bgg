@@ -138,7 +138,6 @@ const IntentReflectorHandler = {
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
@@ -166,8 +165,6 @@ async function getGameList(handlerInput, initIndex, endIndex) {
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
-    console.log('init ->' + initIndex);
-    console.log('end ->' + endIndex);
     const gameList = games
                         .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
                         .slice(initIndex, endIndex)
