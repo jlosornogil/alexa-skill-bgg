@@ -32,7 +32,7 @@ const CompleteListIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CompleteListIntent';
     },
     async handle(handlerInput) {
-        const speakOutput = await getGameList(handlerInput, 0, 50);
+        const speakOutput = await getGameListSpeak(handlerInput, 0, 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
@@ -159,7 +159,7 @@ const ErrorHandler = {
 };
 
 /* HELPER FUNCTIONS */
-async function getGameList(handlerInput, initIndex, endIndex) {
+async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
