@@ -75,7 +75,7 @@ const RangeListItemsIntentHandler = {
     async handle(handlerInput) {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'startIndex');
         const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'endIndex');
-        const speakOutput = await getGameList(handlerInput, startIndex, endIndex.value);
+        const speakOutput = await getGameList(handlerInput, startIndex.value, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
