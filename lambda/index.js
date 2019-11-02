@@ -319,7 +319,7 @@ function getCategory(game) {
  * Get the text to describe a game's mechanic/s.
  * 
  * @param  {Object}         game    given game to retrieve its mechanic/s
- * @return {String}                 Alexa's SSML text to represent the game's name
+ * @return {String}                 Alexa's SSML text to represent the game's mechanic/s
  */
 function getMechanic(game) {
     let mechanicSpeak = '';
