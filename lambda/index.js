@@ -61,7 +61,7 @@ const LastListItemsIntentHandler = {
     },
     async handle(handlerInput) {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'lastSize');
-        const speakOutput = await getGameList(handlerInput, 50 - (startIndex.value), 50);
+        const speakOutput = await getGameListSpeak(handlerInput, 50 - (startIndex.value), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
@@ -76,7 +76,7 @@ const RangeListItemsIntentHandler = {
     async handle(handlerInput) {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'startIndex');
         const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'endIndex');
-        let speakOutput = await getGameList(handlerInput, startIndex.value - 1, endIndex.value);
+        let speakOutput = await getGameListSpeak(handlerInput, startIndex.value - 1, endIndex.value);
         console.log(speakOutput);
         if(speakOutput === '') {
             speakOutput = notFoundSpeak;
