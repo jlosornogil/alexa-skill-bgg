@@ -162,7 +162,6 @@ async function storeHotnessList(handlerInput) {
     return result;
 }
 
-
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
