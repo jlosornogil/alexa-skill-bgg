@@ -6,6 +6,7 @@ const bgg = require('bgg')();
 /* MESSAGE CONSTANTS */
 const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
 const notFoundSpeak = 'No he podido encontrar ningún juego con las condiciones que me pides. Por favor, inténtalo de nuevo.';
+const helpSpeak = '';
 
 /* HANDLERS */
 const LaunchRequestHandler = {
@@ -107,10 +108,9 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Puedes decir: dime la lista completa, dime los x primeros, dime los x últimos, dime del x al y. ¿Cómo te puedo ayudar?';
         return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
+            .speak(helpSpeak)
+            .reprompt(helpSpeak)
             .getResponse();
     }
 };
