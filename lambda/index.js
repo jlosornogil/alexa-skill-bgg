@@ -226,7 +226,8 @@ function getNumberOfPlayers(game) {
 function getPublisher(game) {
     let publisher = '';
     const publishers = game.link
-                            .filter(link => link.type === 'boardgamepublisher');
+                            .filter(link => link.type === 'boardgamepublisher')
+                            .sort(a,b => a.id - b.id);
     if(publishers) {
         publisher = ` publicado por la editorial ${publishers[0].value} `;
     }
