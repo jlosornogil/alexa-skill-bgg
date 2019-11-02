@@ -4,6 +4,7 @@
 const Alexa = require('ask-sdk-core');
 const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 const bgg = require('bgg')();
+const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -34,7 +35,7 @@ const CompleteListIntentHandler = {
         const speakOutput = await getGameList(handlerInput, 0, 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(reprompt)
             .getResponse();
     }
 };
