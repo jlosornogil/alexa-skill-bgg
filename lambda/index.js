@@ -338,8 +338,9 @@ function getMechanic(game) {
 /**
  * Get the text to describe a game's detail.
  * 
- * @param  {Object}         game    given game to retrieve its name
- * @return {String}                 Alexa's SSML text to represent the game's name
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @param  {Number}         detailIndex     the game's index inside the hotness of BGG
+ * @return {String}                         Alexa's SSML text to represent the detail of the specific game
  */
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
