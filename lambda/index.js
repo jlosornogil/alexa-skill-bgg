@@ -295,6 +295,12 @@ function getPlayingTime(game) {
     return playingTimeSpeak;
 }
 
+/**
+ * Get the text to describe a game's category.
+ * 
+ * @param  {Object}         game    given game to retrieve its category
+ * @return {String}                 Alexa's SSML text to represent the game's category
+ */
 function getCategory(game) {
     let categorySpeak = '';
     const categories = game.link
