@@ -202,7 +202,7 @@ async function getGameDetail(handlerInput, detailIndex) {
         //var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
     } else {
         console.log('List not size 1!!');
-        console.log(gameSublist);
+        console.log(gameList);
     }
     return gameDetail;
 }
