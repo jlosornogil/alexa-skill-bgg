@@ -272,9 +272,9 @@ function getMechanic(game) {
                             .sort((a,b) => a.id - b.id)
                             .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
     if(mechanics && mechanics.length === 1) {
-        mechanicSpeak = `<p> Está englobado en la categoría ${mechanics[0]}.</p>`;
+        mechanicSpeak = `<p> Su mecánica principal es ${mechanics[0]}.</p>`;
     } else if(mechanics.length > 1) {
-        mechanicSpeak = '<p> Está englobado en las categorías: ' + mechanics.slice(0, -1).join(', ') + ' y ' + mechanics.slice(-1) + '.</p>';
+        mechanicSpeak = '<p> Sus mecánicas principales son: ' + mechanics.slice(0, -1).join(', ') + ' y ' + mechanics.slice(-1) + '.</p>';
     }
     return mechanicSpeak; 
 }
