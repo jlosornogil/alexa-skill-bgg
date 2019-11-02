@@ -224,14 +224,17 @@ function getNumberOfPlayers(game) {
 }
 
 function getDesigner(game) {
-    let designer = '';
+    let designerSpeak = '';
     const designers = game.link
                             .filter(link => link.type === 'boardgamedesigner')
-                            .sort((a,b) => a.id - b.id);
-    if(publishers) {
-        publisher = ` publicado por la editorial ${publishers[0].value} `;
+                            .sort((a,b) => a.id - b.id)
+                            .map(item => item.value);
+    if(designers && designers.length === 1) {
+        designerSpeak = ` diseñado por ${designers[0].value} `;
+    } else if(designers.length > 1) {
+        designerSpeak = ` diseñado por ${designers[0].value} `;
     }
-    return publisher;
+    return designerSpeak;
 }
 
 function getPublisher(game) {
