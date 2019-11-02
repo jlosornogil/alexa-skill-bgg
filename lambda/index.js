@@ -194,9 +194,9 @@ async function getGameSublist(handlerInput, initIndex, endIndex) {
 
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
-    const gameSublist = await getGameSublist(handlerInput, detailIndex - 1, detailIndex - 1);
-    if(gameSublist && gameSublist.length === 1) {
-        const gameId = gameSublist[0].id;
+    const gameList = await getGameList(handlerInput);
+    if(gameList && gameList[detailIndex - 1]) {
+        const gameId = gameList[detailIndex - 1].id;
         const rawResult = await bgg('thing',{type: 'boardgame', id: gameId});
         console.log(rawResult);
         //var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
