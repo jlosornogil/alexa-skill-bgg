@@ -340,7 +340,7 @@ function getMechanic(game) {
  * 
  * @param  {Object}         handlerInput    given input data coming from the intent handler
  * @param  {Number}         detailIndex     the game's index inside the hotness of BGG
- * @return {String}                         Alexa's SSML text to represent the detail of the specific game
+ * @return {Object}                         Alexa's SSML text to represent the detail of the specific game
  */
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
