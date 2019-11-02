@@ -177,6 +177,12 @@ async function getGameListSpeak(handlerInput, initIndex, endIndex) {
                     .join('');
 }
 
+/**
+ * Get the hotness list of BGG.
+ * 
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @return {String}                         list of hotness games from BGG
+ */
 async function getGameList(handlerInput) {
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
