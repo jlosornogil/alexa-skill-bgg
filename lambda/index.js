@@ -203,7 +203,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
 }
 
 function getName(game) {
-    return Array.isArray(game.name) ? game.name[0].value : game.name.value;
+    return ' <lang xml:lang="en-US">' + (Array.isArray(game.name) ? game.name[0].value : game.name.value) + '</lang> ';
 }
 
 function getNumberOfPlayers(game) {
