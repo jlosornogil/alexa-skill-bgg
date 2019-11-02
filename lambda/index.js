@@ -335,6 +335,12 @@ function getMechanic(game) {
     return mechanicSpeak; 
 }
 
+/**
+ * Get the text to describe a game's detail.
+ * 
+ * @param  {Object}         game    given game to retrieve its name
+ * @return {String}                 Alexa's SSML text to represent the game's name
+ */
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
     const gameList = await getGameList(handlerInput);
