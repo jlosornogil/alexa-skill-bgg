@@ -146,6 +146,7 @@ const ErrorHandler = {
 
 /**
  * Retrieve the hotness list of games from BGG API and store it as a session attribute. It stores only the identifier, rank and name of each game.
+ * 
  * @param  {Object}         handlerInput    given input data coming from the intent handler
  * @return {List[Object]}                   list of hotness games from BGG
  */
@@ -161,6 +162,14 @@ async function storeHotnessList(handlerInput) {
     return result;
 }
 
+/**
+ * Get the text to describe a list of games of the hotness list of BGG. It can be the whole list or a part of it.
+ * 
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @param  {Number}         initIndex       the initial index to retrieve from the list
+ * @param  {Number}         endIndex        the last index to retrieve from the list
+ * @return {String}                         Alexa's SSML text to represent the list of games
+ */
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
