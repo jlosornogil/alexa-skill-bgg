@@ -348,9 +348,6 @@ async function getGameDetail(handlerInput, detailIndex) {
     if(gameList && gameList[detailIndex - 1]) {
         const gameId = gameList[detailIndex - 1].id;
         const rawResult = await bgg('thing',{type: 'boardgame', id: gameId});
-        console.log(rawResult.items.item);
-        console.log(rawResult.items.item.name);
-        console.log(rawResult.items.item.link);
         gameDetail = rawResult.items.item;
     }
     return gameDetail;
