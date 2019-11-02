@@ -189,6 +189,14 @@ async function getGameList(handlerInput) {
     return s3Attributes.hotnessList;
 }
 
+/**
+ * Get a sublist of the hotness list of BGG.
+ * 
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @param  {Number}         initIndex       the initial index to retrieve from the list
+ * @param  {Number}         endIndex        the last index to retrieve from the list
+ * @return {String}                         sublist of hotness games from BGG
+ */
 async function getGameSublist(handlerInput, initIndex, endIndex) {
     const gameList = await getGameList(handlerInput);
     return gameList
