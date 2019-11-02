@@ -196,7 +196,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
     if(game) {
         const name = getName(game);
         const numberOfPlayers = getNumberOfPlayers(game);
-        const publisher = getPublisher(game);
+        const designer = getDesigner(game);
         return `${name}, es un juego ${numberOfPlayers}, ${publisher} en el año ${game.yearpublished.value}.`;
     } else {
         return notFoundSpeak;
@@ -235,17 +235,6 @@ function getDesigner(game) {
         designerSpeak = ' diseñado por ' + designers.slice(0, -1).join(',') + ' y ' + designers.slice(-1);
     }
     return designerSpeak;
-}
-
-function getPublisher(game) {
-    let publisher = '';
-    const publishers = game.link
-                            .filter(link => link.type === 'boardgamepublisher')
-                            .sort((a,b) => a.id - b.id);
-    if(publishers) {
-        publisher = ` publicado por la editorial ${publishers[0].value} `;
-    }
-    return publisher;
 }
 
 async function getGameDetail(handlerInput, detailIndex) {
