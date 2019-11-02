@@ -238,8 +238,8 @@ function getName(game) {
 /**
  * Get the text to describe a game's number of players.
  * 
- * @param  {Object}         game    given game to retrieve its name
- * @return {String}                 Alexa's SSML text to represent the game's name
+ * @param  {Object}         game    given game to retrieve its number of players
+ * @return {String}                 Alexa's SSML text to represent the game's number of players
  */
 function getNumberOfPlayers(game) {
     let numberOfPlayers = '';
