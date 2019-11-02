@@ -91,7 +91,7 @@ const GameDetailIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GameDetailIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const detailIndexParam = Alexa.getSlot(handlerInput.requestEnvelope, 'detailIndex');
         const detailIndex = detailIndexParam.value - 1;
         return handlerInput.responseBuilder
