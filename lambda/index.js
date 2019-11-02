@@ -225,7 +225,7 @@ function getNumberOfPlayers(game) {
 
 function getDesigner(game) {
     let designer = '';
-    const designer = game.link
+    const designers = game.link
                             .filter(link => link.type === 'boardgamedesigner')
                             .sort((a,b) => a.id - b.id);
     if(publishers) {
