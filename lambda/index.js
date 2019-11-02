@@ -160,7 +160,6 @@ const ErrorHandler = {
 
 /* HELPER FUNCTIONS */
 async function getGameList(handlerInput, initIndex, endIndex) {
-    console.log(JSON.stringify(handlerInput.requestEnvelope.request.intent.slots));
     const attributesManager = handlerInput.attributesManager;
     const s3Attributes = await attributesManager.getPersistentAttributes() || {};
     const games = s3Attributes.hotnessList;
