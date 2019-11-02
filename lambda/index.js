@@ -208,14 +208,14 @@ function getName(game) {
 function getNumberOfPlayers(game) {
     let numberOfPlayers = '';
     if(game.minplayers && game.maxplayers) {
-        if(game.minplayers === game.maxplayers) {
-            if(game.minplayers === 1) {
+        if(game.minplayers.value === game.maxplayers.value) {
+            if(game.minplayers.value === 1) {
                 numberOfPlayers = ' en solitario ';
             } else {
-                numberOfPlayers = ` para ${game.minplayers} jugadores `;
+                numberOfPlayers = ` para ${game.minplayers.value} jugadores `;
             }
         } else {
-            numberOfPlayers = ` de ${game.minplayers} a ${game.maxplayers} jugadores `;
+            numberOfPlayers = ` de ${game.minplayers.value} a ${game.maxplayers.value} jugadores `;
         }
     }
     return numberOfPlayers;
