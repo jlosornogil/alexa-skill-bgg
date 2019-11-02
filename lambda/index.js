@@ -92,7 +92,6 @@ const GameDetailIntentHandler = {
     },
     async handle(handlerInput) {
         const detailIndexParam = Alexa.getSlot(handlerInput.requestEnvelope, 'detailIndex');
-        const detailIndex = detailIndexParam.value - 1;
         let speakOutput = await getGameDetailSpeak(handlerInput, detailIndexParam.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
