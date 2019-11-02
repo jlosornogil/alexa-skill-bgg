@@ -203,7 +203,6 @@ async function getGameDetail(handlerInput, detailIndex) {
         console.log('List not size 1!!');
         console.log(gameSublist);
     }
-    
     return gameDetail;
 }
 
