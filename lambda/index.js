@@ -52,6 +52,7 @@ const FirstListItemsIntentHandler = {
             .getResponse();
     }
 };
+
 const LastListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
