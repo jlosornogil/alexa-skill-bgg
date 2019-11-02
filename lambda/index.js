@@ -223,6 +223,17 @@ function getNumberOfPlayers(game) {
     return numberOfPlayers;
 }
 
+function getDesigner(game) {
+    let designer = '';
+    const designer = game.link
+                            .filter(link => link.type === 'boardgamedesigner')
+                            .sort((a,b) => a.id - b.id);
+    if(publishers) {
+        publisher = ` publicado por la editorial ${publishers[0].value} `;
+    }
+    return publisher;
+}
+
 function getPublisher(game) {
     let publisher = '';
     const publishers = game.link
