@@ -52,20 +52,21 @@ const FirstListItemsIntentHandler = {
             .getResponse();
     }
 };
-/*
 const LastListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LastListItemsIntent';
     },
     async handle(handlerInput) {
-        const speakOutput = await getGameList(handlerInput, 50 - (handlerInput.requestEnvelope.request.intent.slots.lastSize.value + 1), 50);
+        const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'lastSize');
+        const speakOutput = await getGameList(handlerInput, 50 - (startIndex.value + 1), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
+/*
 const RangeListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
