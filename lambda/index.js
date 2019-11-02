@@ -179,7 +179,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         CompleteListIntentHandler,
         FirstListItemsIntentHandler,
-        //LastListItemsIntentHandler,
+        LastListItemsIntentHandler,
         //RangeListItemsIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
