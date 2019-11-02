@@ -5,6 +5,7 @@ const Alexa = require('ask-sdk-core');
 const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 const bgg = require('bgg')();
 const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
+const notFoundSpeak = 'No he podido encontrar ningún juego con las condiciones que me pides. Por favor, inténtalo de nuevo.';
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -76,7 +77,11 @@ const RangeListItemsIntentHandler = {
     async handle(handlerInput) {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'startIndex');
         const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'endIndex');
-        const speakOutput = await getGameList(handlerInput, startIndex.value - 1, endIndex.value);
+        let speakOutput = await getGameList(handlerInput, startIndex.value - 1, endIndex.value);
+        console.log(speakOutput);
+        if(speakOutput === '') {
+            speakOutput = '';
+        }
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
