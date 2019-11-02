@@ -199,10 +199,7 @@ async function getGameDetail(handlerInput, detailIndex) {
         const gameId = gameList[detailIndex - 1].id;
         const rawResult = await bgg('thing',{type: 'boardgame', id: gameId});
         console.log(rawResult);
-        //var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
-    } else {
-        console.log('List not size 1!!');
-        console.log(gameList);
+        gameDetail = rawResult.items.item;
     }
     return gameDetail;
 }
