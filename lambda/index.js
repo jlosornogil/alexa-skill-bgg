@@ -193,7 +193,7 @@ async function getGameSublist(handlerInput, initIndex, endIndex) {
 async function getGameDetailSpeak(handlerInput, detailIndex) {
     const game = await getGameDetail(handlerInput, detailIndex);
     if(game) {
-        return `${game.name[0].value} es un juego publicado en el año ${game.yearpublished.value} de ${game.minplayers.value} a ${game.maxplayers.value} jugadores`;
+        return `${game.name[0].value}, es un juego publicado en el año ${game.yearpublished.value}, de ${game.minplayers.value} a ${game.maxplayers.value} jugadores`;
     } else {
         return notFoundSpeak;
     }
