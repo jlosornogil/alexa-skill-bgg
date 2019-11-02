@@ -281,7 +281,7 @@ function getDesigner(game) {
  * Get the text to describe a game's playing time.
  * 
  * @param  {Object}         game    given game to retrieve its playing time
- * @return {String}                 Alexa's SSML text to represent the game's name
+ * @return {String}                 Alexa's SSML text to represent the game's playing time
  */
 function getPlayingTime(game) {
     let playingTimeSpeak = '';
