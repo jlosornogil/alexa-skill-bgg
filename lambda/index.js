@@ -49,7 +49,7 @@ const FirstListItemsIntentHandler = {
         const speakOutput = await getGameList(handlerInput, 0, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(reprompt)
             .getResponse();
     }
 };
@@ -64,7 +64,7 @@ const LastListItemsIntentHandler = {
         const speakOutput = await getGameList(handlerInput, 50 - (startIndex.value), 50);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt(reprompt)
             .getResponse();
     }
 };
