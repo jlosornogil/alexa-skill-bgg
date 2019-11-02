@@ -230,8 +230,9 @@ function getDesigner(game) {
                             .sort((a,b) => a.id - b.id)
                             .map(item => item.value);
     if(designers && designers.length === 1) {
-        designerSpeak = ` diseñado por ${designers[0].value} `;
+        designerSpeak = ` diseñado por ${designers[0]} `;
     } else if(designers.length > 1) {
+        a.slice(0, -1).join(',')+' or '+a.slice(-1);
         designerSpeak = ` diseñado por ${designers[0].value} `;
     }
     return designerSpeak;
