@@ -76,7 +76,6 @@ const RangeListItemsIntentHandler = {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'startIndex');
         const endIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'endIndex');
         let speakOutput = await getGameListSpeak(handlerInput, startIndex.value - 1, endIndex.value);
-        console.log(speakOutput);
         if(speakOutput === '') {
             speakOutput = notFoundSpeak;
         }
@@ -190,6 +189,11 @@ async function getGameSublist(handlerInput, initIndex, endIndex) {
     const gameList = await getGameList(handlerInput);
     return gameList
                 .slice(initIndex, endIndex);
+}
+
+async function getGameDetailSpeak(handlerInput, detailIndex) {
+    const gameDetail = await getGameDetail(handlerInput, detailIndex);
+    
 }
 
 async function getGameDetail(handlerInput, detailIndex) {
