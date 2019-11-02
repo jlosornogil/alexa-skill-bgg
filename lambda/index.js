@@ -150,6 +150,19 @@ const ErrorHandler = {
 };
 
 /* HELPER FUNCTIONS */
+async function storeHotnessList(handlerInput) {
+    // Get the hotness list from BGG
+    const rawResult = await bgg('hot',{type: 'boardgame'});
+    var result = rawResult.items.item.map(game => ({ id: game.id, rank: game.rank, name: game.name.value }));
+    // Store the list in the user's session
+    const attributesManager = handlerInput.attributesManager;
+    let s3Attributes = {'hotnessList':result};
+    attributesManager.setPersistentAttributes(s3Attributes);
+    await attributesManager.savePersistentAttributes();
+    return result;
+}
+
+
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
