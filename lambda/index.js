@@ -94,7 +94,10 @@ const GameDetailIntentHandler = {
     handle(handlerInput) {
         const detailIndexParam = Alexa.getSlot(handlerInput.requestEnvelope, 'detailIndex');
         const detailIndex = detailIndexParam - 1;
-        return `Más información del número ${detailIndex}`;
+        return handlerInput.responseBuilder
+            .speak(`Más información del número ${detailIndex}`)
+            .reprompt(reprompt)
+            .getResponse();
     }
 }
 const HelpIntentHandler = {
