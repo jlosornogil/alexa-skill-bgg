@@ -52,6 +52,7 @@ const FirstListItemsIntentHandler = {
             .getResponse();
     }
 };
+/*
 const LastListItemsIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -78,6 +79,7 @@ const RangeListItemsIntentHandler = {
             .getResponse();
     }
 };
+*/
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -175,8 +177,8 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         CompleteListIntentHandler,
         FirstListItemsIntentHandler,
-        LastListItemsIntentHandler,
-        RangeListItemsIntentHandler,
+        //LastListItemsIntentHandler,
+        //RangeListItemsIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
