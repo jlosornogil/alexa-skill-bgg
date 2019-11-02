@@ -6,7 +6,7 @@ const bgg = require('bgg')();
 /* MESSAGE CONSTANTS */
 const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
 const notFoundSpeak = 'No he podido encontrar ningún juego con las condiciones que me pides. Por favor, inténtalo de nuevo.';
-const helpSpeak = '';
+const helpSpeak = 'Puedes decir: dime la lista completa, dime los x primeros, dime los x últimos, dime del x al y, dime el detalle del número x. ¿Cómo te puedo ayudar?';
 
 /* HANDLERS */
 const LaunchRequestHandler = {
