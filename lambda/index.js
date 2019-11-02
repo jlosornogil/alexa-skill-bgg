@@ -143,6 +143,12 @@ const ErrorHandler = {
 };
 
 /* HELPER FUNCTIONS */
+
+/**
+ * Retrieve the hotness list of games from BGG API and store it as a session attribute. It stores only the identifier, rank and name of each game.
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @return {List[Object]}                   list of hotness games from BGG
+ */
 async function storeHotnessList(handlerInput) {
     // Get the hotness list from BGG
     const rawResult = await bgg('hot',{type: 'boardgame'});
