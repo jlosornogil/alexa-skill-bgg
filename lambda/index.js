@@ -259,7 +259,7 @@ function getCategory(game) {
     if(categories && categories.length === 1) {
         categorySpeak = `<p> Está englobado en la categoría ${categories[0]}.</p>`;
     } else if(categories.length > 1) {
-        categorySpeak = ' diseñado por ' + categories.slice(0, -1).join(', ') + ' y ' + categories.slice(-1);
+        categorySpeak = '<p> Está englobado en las categorías ' + categories.slice(0, -1).join(', ') + ' y ' + categories.slice(-1) + '.</p>';
     }
     return categorySpeak; 
 }
