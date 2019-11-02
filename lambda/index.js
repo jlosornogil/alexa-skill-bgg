@@ -195,6 +195,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
     if(game) {
         const name = getName(game);
         const numberOfPlayers = getNumberOfPlayers(game);
+        const publisher = getPublisher(game);
         return `${name}, es un juego ${numberOfPlayers}, publicado en el año ${game.yearpublished.value}.`;
     } else {
         return notFoundSpeak;
@@ -226,7 +227,7 @@ function getPublisher(game) {
     const publishers = game.link
                             .filter(link => link.type === 'boardgamepublisher');
     if(publishers) {
-        publisher = ` publicado por ${publishers[0].value} `;
+        publisher = ` publicado por la editorial ${publishers[0].value} `;
     }
     return publisher;
 }
