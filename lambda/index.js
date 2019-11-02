@@ -191,6 +191,19 @@ async function getGameSublist(handlerInput, initIndex, endIndex) {
                 .slice(initIndex, endIndex);
 }
 
+async function getGameDetail(handlerInput, detailIndex) {
+    let gameDetail = null;
+    const gameSublist = await getGameSublist(handlerInput, detailIndex - 1, detailIndex - 1);
+    if(gameSublist && gameSublist.length === 1) {
+        
+    } else {
+        console.log('List not size 1!!');
+        console.log(gameSublist);
+    }
+    
+    return gameDetail;
+}
+
 /* LAMBDA SETUP */
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
