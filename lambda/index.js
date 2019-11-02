@@ -80,7 +80,7 @@ const RangeListItemsIntentHandler = {
         let speakOutput = await getGameList(handlerInput, startIndex.value - 1, endIndex.value);
         console.log(speakOutput);
         if(speakOutput === '') {
-            speakOutput = '';
+            speakOutput = notFoundSpeak;
         }
         return handlerInput.responseBuilder
             .speak(speakOutput)
