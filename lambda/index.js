@@ -237,6 +237,18 @@ function getDesigner(game) {
     return designerSpeak;
 }
 
+function getPlayingTime(game) {
+    let playingTimeSpeak = '';
+    if(game.minplaytime && game.maxplaytime && game.minplaytime.value !== '0' && game.maxplaytime.value !== '0') {
+        if(game.minplaytime.value === game.maxplaytime.value) {
+            playingTimeSpeak = `<p>El tiempo de juego es de ${game.minplaytime.value} minutos.</p>`;   
+        } else {
+            playingTimeSpeak = `<p>El tiempo de juego es de ${game.minplaytime.value} a ${game.maxplaytime.value} minutos.</p>`;   
+        }
+    }
+    return playingTimeSpeak;
+}
+
 async function getGameDetail(handlerInput, detailIndex) {
     let gameDetail = null;
     const gameList = await getGameList(handlerInput);
