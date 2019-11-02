@@ -92,7 +92,9 @@ const GameDetailIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GameDetailIntent';
     },
     async handle(handlerInput) {
-        
+        const detailIndexParam = Alexa.getSlot(handlerInput.requestEnvelope, 'detailIndex');
+        const detailIndex = detailIndexParam - 1;
+        return `Más información del número ${detailIndex}`;
     }
 }
 
