@@ -174,7 +174,7 @@ async function storeHotnessList(handlerInput) {
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
-                    .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
+                    .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p><p>${propmt}</p>`)
                     .join('');
 }
 
@@ -220,7 +220,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
         const playingTime = getPlayingTime(game);
         const category = getCategory(game);
         const mechanic = getMechanic(game);
-        return `<p>${name}, es un juego ${numberOfPlayers}, ${designer} en el año ${game.yearpublished.value}.</p>${playingTime} ${category} ${mechanic}`;
+        return `<p>${name}, es un juego ${numberOfPlayers}, ${designer} en el año ${game.yearpublished.value}.</p>${playingTime} ${category} ${mechanic}<p>${propmt}</p>`;
     } else {
         return notFoundSpeak;
     }
