@@ -175,7 +175,7 @@ async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
                     .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
-                    .join('');
+                    .join('') + `<p>${propmt}</p>`;
 }
 
 /**
