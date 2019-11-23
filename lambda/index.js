@@ -174,7 +174,7 @@ async function storeHotnessList(handlerInput) {
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
-                    .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US">${game.name}</lang></p>`)
+                    .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US"><emphasis level="strong">${game.name}</emphasis></lang></p>`)
                     .join('') 
                     + `<p>${propmt}</p>`;
 }
