@@ -308,7 +308,7 @@ function getCategory(game) {
     const categories = game.link
                             .filter(link => link.type === 'boardgamecategory')
                             .sort((a,b) => a.id - b.id)
-                            .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
+                            .map(item => '<lang xml:lang="en-US"><emphasis level="moderate">' + item.value + '</emphasis></lang>');
     if(categories && categories.length === 1) {
         categorySpeak = `<p> Está englobado en la categoría ${categories[0]}.</p>`;
     } else if(categories.length > 1) {
