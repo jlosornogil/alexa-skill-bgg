@@ -328,7 +328,7 @@ function getMechanic(game) {
     const mechanics = game.link
                             .filter(link => link.type === 'boardgamemechanic')
                             .sort((a,b) => a.id - b.id)
-                            .map(item => '<lang xml:lang="en-US">' + item.value + '</lang>');
+                            .map(item => '<lang xml:lang="en-US"><emphasis level="moderate">' + item.value + '</emphasis></lang>');
     if(mechanics && mechanics.length === 1) {
         mechanicSpeak = `<p> Su mecánica principal es ${mechanics[0]}.</p>`;
     } else if(mechanics.length > 1) {
