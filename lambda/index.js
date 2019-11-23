@@ -115,7 +115,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = '¡Hasta luego!';
+        const speakOutput = '<say-as interpret-as="interjection">hasta luego</say-as>';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
