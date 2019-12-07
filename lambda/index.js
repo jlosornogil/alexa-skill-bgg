@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
         const speakOutput = `Hola, he encontrado ${hotnessList.length} juegos de los que se está hablando en <lang xml:lang="en-US">Board Game Geek</lang>. ¿Quieres escuchar la lista completa, o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withStandardCard(title, speakOutput.replace(/<.*?>/g, ''))
+            .withSimpleCard(title, speakOutput.replace(/<.*?>/g, ''))
             .reprompt(reprompt)
             .getResponse();
     }
