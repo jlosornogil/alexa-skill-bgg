@@ -243,7 +243,7 @@ async function getGameDetailSpeak(handlerInput, detailIndex) {
         const playingTime = getPlayingTime(game);
         const category = getCategory(game);
         const mechanic = getMechanic(game);
-        return `<p>${name}, es un juego ${numberOfPlayers}, ${designer} en el año ${game.yearpublished.value}.</p>${playingTime} ${category} ${mechanic}<p>${propmt}</p>`;
+        return `<p>${name}, es un juego ${numberOfPlayers}, ${designer} en el año ${game.yearpublished.value}.</p>${playingTime} ${category} ${mechanic} <p>${propmt}</p>`;
     } else {
         return notFoundSpeak;
     }
