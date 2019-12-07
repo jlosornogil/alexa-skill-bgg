@@ -371,6 +371,12 @@ async function getGameDetail(handlerInput, detailIndex) {
     return gameDetail;
 }
 
+/**
+ * Convert a speak text to display (removing SSML tags).
+ * 
+ * @param  {String}         speakText    given string with SSML tags
+ * @return {String}                      display-enabled version of the string
+ */
 function convertSpeakToDisplay(speakText) {
     return speakText.replace(/<.*?>/g, '');
 }
