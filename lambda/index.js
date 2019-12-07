@@ -192,6 +192,18 @@ async function getGameList(handlerInput) {
 }
 
 /**
+ * Get the length of the hotness list of BGG.
+ * 
+ * @param  {Object}         handlerInput    given input data coming from the intent handler
+ * @return {Number}                         number of items of the hotness games from BGG
+ */
+async function getGameListLength(handlerInput) {
+    const attributesManager = handlerInput.attributesManager;
+    const s3Attributes = await attributesManager.getPersistentAttributes() || {};
+    return s3Attributes.hotnessListLength;
+}
+
+/**
  * Get a sublist of the hotness list of BGG.
  * 
  * @param  {Object}         handlerInput    given input data coming from the intent handler
