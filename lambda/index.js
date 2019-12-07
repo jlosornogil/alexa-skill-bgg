@@ -369,6 +369,16 @@ async function getGameDetail(handlerInput, detailIndex) {
     return gameDetail;
 }
 
+/**
+ * Convert a speak text to display-enabled text.
+ * 
+ * @param  {String}         speak    given speak text
+ * @return {String}                  display-enabled text corresponding to given speak text
+ */
+function convertSpeakToDisplay(speak) {
+    return speak.replace(/<.*?>/g, '');
+}
+
 /* LAMBDA SETUP */
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
