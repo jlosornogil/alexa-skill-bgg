@@ -29,7 +29,8 @@ const CompleteListIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CompleteListIntent';
     },
     async handle(handlerInput) {
-        const speakOutput = await getGameListSpeak(handlerInput, 0, 50);
+        const length = await getGameListLength(handlerInput);
+        const speakOutput = await getGameListSpeak(handlerInput, 0, length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
@@ -57,7 +58,8 @@ const LastListItemsIntentHandler = {
     },
     async handle(handlerInput) {
         const startIndex = Alexa.getSlot(handlerInput.requestEnvelope, 'lastSize');
-        const speakOutput = await getGameListSpeak(handlerInput, 50 - (startIndex.value), 50);
+        const length = await getGameListLength(handlerInput);
+        const speakOutput = await getGameListSpeak(handlerInput, length - (startIndex.value), length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(reprompt)
