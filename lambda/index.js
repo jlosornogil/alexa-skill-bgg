@@ -35,6 +35,7 @@ const CompleteListIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, 0, length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -49,6 +50,7 @@ const FirstListItemsIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, 0, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -64,6 +66,7 @@ const LastListItemsIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, length - (startIndex.value), length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -82,6 +85,7 @@ const RangeListItemsIntentHandler = {
         }
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
