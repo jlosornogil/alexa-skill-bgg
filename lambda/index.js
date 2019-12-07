@@ -85,6 +85,7 @@ const RangeListItemsIntentHandler = {
         }
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
