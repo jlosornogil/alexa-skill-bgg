@@ -66,6 +66,7 @@ const LastListItemsIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, length - (startIndex.value), length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
