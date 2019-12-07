@@ -4,7 +4,6 @@ const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 const bgg = require('bgg')();
 
 /* MESSAGE CONSTANTS */
-const title = '¿De qué juegos se está hablando?';
 const propmt = '¿Quieres saber algo más?';
 const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
 const notFoundSpeak = 'No he podido encontrar ningún juego con las condiciones que me pides. Por favor, inténtalo de nuevo.';
@@ -20,7 +19,6 @@ const LaunchRequestHandler = {
         const speakOutput = `Hola, he encontrado ${hotnessList.length} juegos de los que se está hablando en <lang xml:lang="en-US">Board Game Geek</lang>. ¿Quieres escuchar la lista completa, o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -35,7 +33,6 @@ const CompleteListIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, 0, length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -50,7 +47,6 @@ const FirstListItemsIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, 0, endIndex.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -66,7 +62,6 @@ const LastListItemsIntentHandler = {
         const speakOutput = await getGameListSpeak(handlerInput, length - (startIndex.value), length);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -85,7 +80,6 @@ const RangeListItemsIntentHandler = {
         }
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -100,7 +94,6 @@ const GameDetailIntentHandler = {
         let speakOutput = await getGameDetailSpeak(handlerInput, detailIndexParam.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
@@ -113,7 +106,6 @@ const HelpIntentHandler = {
     handle(handlerInput) {
         return handlerInput.responseBuilder
             .speak(helpSpeak)
-            .withSimpleCard(title, convertSpeakToDisplay(helpSpeak))
             .reprompt(helpSpeak)
             .getResponse();
     }
@@ -184,9 +176,9 @@ async function storeHotnessList(handlerInput) {
 async function getGameListSpeak(handlerInput, initIndex, endIndex) {
     const gamesSublist = await getGameSublist(handlerInput, initIndex, endIndex);
     return gamesSublist
-                    .map(game => ` <p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US"><emphasis level="strong">${game.name}</emphasis></lang></p>`)
-                    .join('') 
-                    + `<p>${propmt}</p>`;
+                    .map(game => `<p><emphasis level="strong">${game.rank}</emphasis> <break strength="medium"/> <lang xml:lang="en-US"><emphasis level="strong">${game.name}</emphasis></lang></p>`)
+                    .join(' ') 
+                    + ` <p>${propmt}</p>`;
 }
 
 /**
@@ -375,16 +367,6 @@ async function getGameDetail(handlerInput, detailIndex) {
         gameDetail = rawResult.items.item;
     }
     return gameDetail;
-}
-
-/**
- * Convert a speak text to display (removing SSML tags).
- * 
- * @param  {String}         speakText    given string with SSML tags
- * @return {String}                      display-enabled version of the string
- */
-function convertSpeakToDisplay(speakText) {
-    return speakText.replace(/<.*?>/g, '');
 }
 
 /* LAMBDA SETUP */
