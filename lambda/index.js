@@ -371,6 +371,10 @@ async function getGameDetail(handlerInput, detailIndex) {
     return gameDetail;
 }
 
+function convertSpeakToDisplay(speakText) {
+    return speakText.replace(/<.*?>/g, '');
+}
+
 /* LAMBDA SETUP */
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
