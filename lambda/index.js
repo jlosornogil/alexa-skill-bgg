@@ -100,6 +100,7 @@ const GameDetailIntentHandler = {
         let speakOutput = await getGameDetailSpeak(handlerInput, detailIndexParam.value);
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, convertSpeakToDisplay(speakOutput))
             .reprompt(reprompt)
             .getResponse();
     }
