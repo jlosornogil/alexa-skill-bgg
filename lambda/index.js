@@ -4,6 +4,7 @@ const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 const bgg = require('bgg')();
 
 /* MESSAGE CONSTANTS */
+const title = '¿De qué juegos se está hablando?';
 const propmt = '¿Quieres saber algo más?';
 const reprompt = '¿Quieres saber algo más? Puedes decir ayuda para conocer más comandos o salir para cerrar esta aplicación.';
 const notFoundSpeak = 'No he podido encontrar ningún juego con las condiciones que me pides. Por favor, inténtalo de nuevo.';
@@ -19,6 +20,7 @@ const LaunchRequestHandler = {
         const speakOutput = `Hola, he encontrado ${hotnessList.length} juegos de los que se está hablando en <lang xml:lang="en-US">Board Game Geek</lang>. ¿Quieres escuchar la lista completa, o una parte?`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
+            .withSimpleCard(title, speakOutput)
             .reprompt(reprompt)
             .getResponse();
     }
