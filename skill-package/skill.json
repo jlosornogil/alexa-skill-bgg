@@ -1,0 +1,96 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "es-ES": {
+          "summary": "\"¿De qué juegos se está hablando?\" es una skill que te permite conocer cuales son los juegos de mesa de los que más de habla actualmente en Board Game Geek",
+          "examplePhrases": [
+            "Alexa, abre de qué juegos se está hablando",
+            "Dime los cinco primeros"
+          ],
+          "keywords": [
+            "juegos",
+            "mesa",
+            "bgg",
+            "estrategia",
+            "eurogame",
+            "ameritrash",
+            "juego",
+            "destacados",
+            "lista",
+            "diseñador"
+          ],
+          "name": "¿De qué juegos se está hablando?",
+          "description": "Esta skill te permite conocer e interactuar con la lista de juegos de mesa de los que más se está hablando en Board Game Geek (https://boardgamegeek.com/) o BGG.\n\nPuedes realizar tres funciones principales con esta skill:\n1 - Escuchar la lista completa de juegos de los que más se está hablando en BGG.\n2 - Escuchar una sección de la lista anterior.\n3 - Escuchar el detalle de uno o más juegos de la lista anterior.\n\nPara escuchar la lista completa de juegos de mesa de los que más se está hablando solo tienes que decir \"dime la lista completa\" o \"lista completa\" o \"dime toda la lista\".\n\nPara escuchar una sección de la lista solo tienes que decir \"dime los X primeros\", \"dime los X últimos\" o \"dime del X al Y\".\n\nPara escuchar el detalle de algún juego de la lista solo tienes que decir \"dame más información del número X\", \"dime la ficha del X\" o \"dame el detalle del X\".\n\nOtros comandos útiles son:\n- Ayuda: para obtener una lista de los comandos que puedes utilizar.\n\nAtribuciones:\n- Toda la información de los juegos de mesa es proporcionada por Board Game Geek(https://boardgamegeek.com/) a través de su API XML (https://boardgamegeek.com/wiki/page/BGG_XML_API2).\n- Se ha hecho uso de la librería de NodeJS \"bgg\" (https://www.npmjs.com/package/bgg) para invocar al API de BGG.\n- El icono de la skill ha sido creado haciendo uso de la web Icons8 (https://iconos8.es/).",
+          "smallIconUri": "file://assets/images/es-ES_smallIconUri.png",
+          "largeIconUri": "file://assets/images/es-ES_largeIconUri.png"
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "There are no special requirements to test this skill.",
+      "category": "GAME_INFO_AND_ACCESSORY",
+      "distributionCountries": [
+        "ES"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:801766817582:function:520d8df7-3ad3-4ef8-b161-f79903aa6ff0:Release_1"
+        },
+        "interfaces": [
+          {
+            "supportedViewports": [
+              {
+                "minHeight": 480,
+                "mode": "HUB",
+                "shape": "ROUND",
+                "maxHeight": 480,
+                "minWidth": 480,
+                "maxWidth": 480
+              },
+              {
+                "minHeight": 600,
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "maxHeight": 600,
+                "minWidth": 1024,
+                "maxWidth": 1024
+              },
+              {
+                "minHeight": 800,
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "maxHeight": 800,
+                "minWidth": 1280,
+                "maxWidth": 1280
+              },
+              {
+                "minHeight": 540,
+                "mode": "TV",
+                "shape": "RECTANGLE",
+                "maxHeight": 540,
+                "minWidth": 960,
+                "maxWidth": 960
+              }
+            ],
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::person_id:read"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

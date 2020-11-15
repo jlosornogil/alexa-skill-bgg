@@ -1,0 +1,171 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "de qué juegos se está hablando",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "cancelar"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "quiero escuchar la ayuda",
+            "más información",
+            "ayúdame",
+            "dame ayuda",
+            "dame instrucciones",
+            "dime las instrucciones",
+            "necesito ayuda",
+            "ayuda"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "no gracias",
+            "no quiero",
+            "no quiero nada más",
+            "no quiero saber nada más",
+            "salir",
+            "parar",
+            "finalizar",
+            "acabar"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "CompleteListIntent",
+          "slots": [],
+          "samples": [
+            "cuéntame toda la lista",
+            "cuéntame la lista completa",
+            "quiero la lista completa",
+            "dame toda la lista",
+            "dame la lista completa",
+            "quiero oir la lista entera",
+            "quiero escuchar la lista entera",
+            "quiero oir toda la lista",
+            "quiero oir la lista completa",
+            "quiero escuchar la lista completa",
+            "quiero escuchar toda la lista",
+            "dime toda la lista",
+            "lista completa",
+            "dime la lista completa"
+          ]
+        },
+        {
+          "name": "FirstListItemsIntent",
+          "slots": [
+            {
+              "name": "firstSize",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "dame los {firstSize} primeros",
+            "indícame los {firstSize} primeros",
+            "quiero los {firstSize} primeros",
+            "dime los {firstSize} iniciales",
+            "los {firstSize} iniciales",
+            "quiero escurchar los {firstSize} iniciales",
+            "quiero oir los {firstSize} iniciales",
+            "quiero oir los {firstSize} primeros",
+            "los {firstSize} primeros",
+            "quiero escuchar los {firstSize} primeros",
+            "dime los {firstSize} primeros"
+          ]
+        },
+        {
+          "name": "LastListItemsIntent",
+          "slots": [
+            {
+              "name": "lastSize",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "dame los {lastSize} últimos",
+            "indícame los {lastSize} últimos",
+            "quiero los {lastSize} últimos",
+            "los {lastSize} finales",
+            "quiero oir los {lastSize} finales",
+            "quiero escuchar los {lastSize} finales",
+            "dime los {lastSize} finales",
+            "los {lastSize} ultimos",
+            "quiero oir los {lastSize} ultimos",
+            "quiero escuchar los {lastSize} ultimos",
+            "dime los {lastSize} ultimos"
+          ]
+        },
+        {
+          "name": "RangeListItemsIntent",
+          "slots": [
+            {
+              "name": "startIndex",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "endIndex",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "quiero del {startIndex} al número {endIndex}",
+            "quiero del número {startIndex} al {endIndex}",
+            "quiero del número {startIndex} al número {endIndex}",
+            "quiero del {startIndex} al {endIndex}",
+            "quiero escuchar del {startIndex} al número {endIndex}",
+            "quiero escuchar del número {startIndex} al {endIndex}",
+            "quiero escuchar del número {startIndex} al número {endIndex}",
+            "quiero escuchar del {startIndex} al {endIndex}",
+            "quiero oir del {startIndex} al número {endIndex}",
+            "quiero oir del número {startIndex} al {endIndex}",
+            "quiero oir del número {startIndex} al número {endIndex}",
+            "quiero oir del {startIndex} al {endIndex}",
+            "dime del {startIndex} al número {endIndex}",
+            "dime del número {startIndex} al {endIndex}",
+            "dime del número {startIndex} al número {endIndex}",
+            "dime del {startIndex} al {endIndex}"
+          ]
+        },
+        {
+          "name": "GameDetailIntent",
+          "slots": [
+            {
+              "name": "detailIndex",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "haz la ficha del {detailIndex}",
+            "haz la ficha del número {detailIndex}",
+            "quiero oir más información del {detailIndex}",
+            "quiero oir más información del número {detailIndex}",
+            "quiero escuchar más información del {detailIndex}",
+            "quiero escuchar más información del número {detailIndex}",
+            "quiero oir el detalle del {detailIndex}",
+            "quiero oir el detalle del número {detailIndex}",
+            "quiero escuchar el detalle del {detailIndex}",
+            "quiero escuchar el detalle del número {detailIndex}",
+            "hazme la ficha del {detailIndex}",
+            "hazme la ficha del número {detailIndex}",
+            "dime la ficha del {detailIndex}",
+            "dame el detalle del {detailIndex}",
+            "dame más información del {detailIndex}",
+            "dime la ficha del número {detailIndex}",
+            "dame el detalle del número {detailIndex}",
+            "dame más información del número {detailIndex}"
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "37"
+}
