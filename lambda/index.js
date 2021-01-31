@@ -173,7 +173,7 @@ async function storeHotnessList(handlerInput) {
     return result;
 }
 
-/** 
+/**
  * Get the text to describe a list of games of the hotness list of BGG. It can be the whole list or a part of it.
  * 
  * @param  {Object}         handlerInput    given input data coming from the intent handler
